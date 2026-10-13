@@ -1,4 +1,4 @@
-<img src="assets/photo.jpg" alt="Portrait of Feiyu Jia" width="120" align="right">
+
 
 # Feiyu Jia
 
