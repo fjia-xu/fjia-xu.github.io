@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Feiyu Jia</title>
+<meta name="description" content="Feiyu Jia is a research assistant in the Systems and Artificial Intelligence (SAI) Lab at New York University, working on efficient large language models: low-bit quantization and efficient LLM serving. Applying to Ph.D. programs for Fall 2027.">
+<meta name="author" content="Feiyu Jia">
+<link rel="canonical" href="https://fjia-xu.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Feiyu Jia">
+<meta property="og:description" content="Feiyu Jia is a research assistant in the Systems and Artificial Intelligence (SAI) Lab at New York University, working on efficient large language models: low-bit quantization and efficient LLM serving. Applying to Ph.D. programs for Fall 2027.">
+<meta property="og:url" content="https://fjia-xu.github.io/">
+<meta property="og:image" content="https://fjia-xu.github.io/assets/photo.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2315355C'/%3E%3Cg stroke='%23E3EBF6' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4.5 24v-2M9 24v-6M12.6 24v-11M15 24v-15M17 24v-15M19.4 24v-11M23 24v-6M27.5 24v-2'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Feiyu Jia",
+  "url": "https://fjia-xu.github.io/",
+  "image": "https://fjia-xu.github.io/assets/photo.jpg",
+  "email": "mailto:fj2182@nyu.edu",
+  "jobTitle": "Research Assistant",
+  "affiliation": {"@type": "Organization", "name": "New York University"},
+  "alumniOf": [
+    {"@type": "CollegeOrUniversity", "name": "New York University"},
+    {"@type": "CollegeOrUniversity", "name": "The Hong Kong University of Science and Technology"}
+  ],
+  "knowsAbout": ["LLM quantization", "model compression", "efficient LLM inference", "speculative decoding"],
+  "sameAs": ["https://github.com/fjia-xu", "https://www.linkedin.com/in/feiyu-jia-a90322334"]
+}
+</script>
+<style>
+/* Layout: a quiet identity rail (portrait, name, contact) beside one reading column; the rail stacks above the column on phones. */
+:root {
+  --bg: #FBFCFD;
+  --surface: #F1F4F8;
+  --ink: #121821;
+  --ink-2: #445063;
+  --ink-3: #5B6779;
+  --rule: #DCE2EA;
+  --accent: #1D4E8F;
+  --accent-ink: #15355C;
+  --accent-soft: #E3EBF6;
+  --review-fg: #7A4D00;
+  --review-bg: #FAEFD7;
+  --pub-fg: #1B6340;
+  --pub-bg: #E0F0E6;
+  --todo: #C2410C;
+  --font-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --t-xs: 0.75rem;
+  --t-sm: 0.8125rem;
+  --t-md: 0.9375rem;
+  --t-body: 1.0625rem;
+  --t-h2: 1.625rem;
+  --t-name: 2.625rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E131B; --surface: #161D28; --ink: #E6EBF2; --ink-2: #B3BDCB; --ink-3: #8F9BAD;
+    --rule: #263142; --accent: #8FB9F0; --accent-ink: #C8DBF5; --accent-soft: #1B2A40;
+    --review-fg: #F0C46E; --review-bg: #2D2412; --pub-fg: #82D3A8; --pub-bg: #12291E; --todo: #FB923C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E131B; --surface: #161D28; --ink: #E6EBF2; --ink-2: #B3BDCB; --ink-3: #8F9BAD;
+  --rule: #263142; --accent: #8FB9F0; --accent-ink: #C8DBF5; --accent-soft: #1B2A40;
+  --review-fg: #F0C46E; --review-bg: #2D2412; --pub-fg: #82D3A8; --pub-bg: #12291E; --todo: #FB923C;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  line-height: 1.62;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em; text-decoration-color: var(--rule); transition: text-decoration-color .15s; }
+a:hover { text-decoration-color: currentColor; }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
+.page {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 44px);
+  padding-block: clamp(28px, 6vw, 72px) 48px;
+  display: grid;
+  grid-template-columns: 272px minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 88px);
+}
+
+/* ---------- identity rail ---------- */
+.rail { align-self: start; min-width: 0; }
+@media (min-width: 901px) and (min-height: 760px) {
+  .rail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 40px); }
+}
+.rail-head { display: grid; gap: 0; }
+.portrait {
+  display: block; width: 100%; max-width: 272px; height: auto; aspect-ratio: 375 / 472;
+  object-fit: cover; border-radius: 10px; border: 1px solid var(--rule); background: var(--surface);
+}
+.name {
+  font-family: var(--font-display); font-weight: 600; font-size: var(--t-name); line-height: 1.04;
+  letter-spacing: -0.018em; color: var(--accent-ink); margin: 22px 0 10px; text-wrap: balance;
+}
+.role { margin: 0; color: var(--ink-2); font-size: var(--t-md); line-height: 1.5; }
+.seeking {
+  display: inline-block; margin: 16px 0 0; padding: 4px 10px; border-radius: 999px;
+  font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: 0.02em;
+  color: var(--accent-ink); background: var(--accent-soft);
+}
+.contact {
+  list-style: none; margin: 22px 0 0; padding: 18px 0 0; border-top: 1px solid var(--rule);
+  display: grid; gap: 7px; font-size: 0.875rem;
+}
+.contact li { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 8px; align-items: baseline; }
+.contact .nowrap { white-space: nowrap; }
+.k {
+  font-family: var(--font-mono); font-size: 0.6875rem; text-transform: uppercase;
+  letter-spacing: 0.09em; color: var(--ink-3);
+}
+.contact a { overflow-wrap: anywhere; }
+.copy {
+  font: 500 0.6875rem/1 var(--font-mono); letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--ink-2); background: transparent; border: 1px solid var(--rule);
+  border-radius: 6px; padding: 4px 6px; cursor: pointer; transition: color .15s, border-color .15s;
+}
+.copy:hover { color: var(--accent); border-color: var(--accent); }
+.toc {
+  margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--rule);
+  display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: var(--t-md);
+}
+.toc a { color: var(--ink-2); text-decoration: none; }
+.toc a:hover { color: var(--accent); }
+
+/* ---------- reading column ---------- */
+main { min-width: 0; max-width: 700px; }
+section { padding-block: 0 30px; scroll-margin-top: 24px; }
+section + section { border-top: 1px solid var(--rule); padding-top: 30px; }
+h2 {
+  font-family: var(--font-display); font-weight: 500; font-size: var(--t-h2); line-height: 1.2;
+  letter-spacing: -0.006em; color: var(--accent-ink); margin: 0 0 18px; text-wrap: balance;
+}
+.bio p { margin: 0 0 14px; max-width: 66ch; }
+.bio p:first-child { font-size: 1.125rem; }
+.interests { margin: 18px 0 0; display: grid; gap: 6px; }
+.interests ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px 8px; }
+.interests li {
+  font-size: var(--t-md); color: var(--ink); background: var(--surface);
+  border: 1px solid var(--rule); border-radius: 999px; padding: 3px 12px;
+}
+
+/* dated rows: news, research, education */
+.dated { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.dated > li { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 18px; align-items: baseline; }
+.when {
+  font-family: var(--font-mono); font-size: var(--t-sm); color: var(--ink-3);
+  font-variant-numeric: tabular-nums; line-height: 1.6;
+}
+.dated p { margin: 0; }
+.news { gap: 10px; }
+.news > li { grid-template-columns: 82px minmax(0, 1fr); font-size: var(--t-md); }
+.roles { gap: 22px; }
+.roles h3, .edu h3 { font-size: var(--t-body); font-weight: 600; line-height: 1.4; margin: 0; color: var(--ink); }
+.meta { margin: 2px 0 0 !important; font-size: var(--t-md); color: var(--ink-2); }
+.desc { margin: 6px 0 0 !important; font-size: var(--t-md); color: var(--ink-2); }
+.edu { gap: 16px; }
+
+/* publications */
+.pubnote { margin: -8px 0 18px; font-size: var(--t-sm); color: var(--ink-3); }
+.papers { display: grid; gap: 30px; }
+.paper { display: grid; grid-template-columns: 156px minmax(0, 1fr); gap: 22px; align-items: start; }
+.thumb { margin: 0; padding: 10px 10px 8px; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; }
+.thumb svg { display: block; width: 100%; height: auto; }
+.thumb figcaption { margin-top: 6px; font-family: var(--font-mono); font-size: 0.6875rem; line-height: 1.4; color: var(--ink-3); }
+.paper h3 { font-size: var(--t-body); font-weight: 600; line-height: 1.38; margin: 0 0 4px; color: var(--ink); text-wrap: balance; }
+.authors { margin: 0; font-size: var(--t-md); color: var(--ink-2); }
+.authors strong { color: var(--ink); font-weight: 600; }
+.authors a { color: inherit; text-decoration-color: var(--rule); }
+.authors a:hover { color: var(--accent); text-decoration-color: currentColor; }
+.venue { margin: 6px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: var(--t-md); color: var(--ink-2); }
+.status {
+  font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 2px 8px; border-radius: 999px; white-space: nowrap;
+}
+.status.review { color: var(--review-fg); background: var(--review-bg); }
+.status.published { color: var(--pub-fg); background: var(--pub-bg); }
+.summary { margin: 8px 0 0; font-size: var(--t-md); color: var(--ink-2); }
+.results { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.results li {
+  font-family: var(--font-mono); font-size: var(--t-xs); color: var(--ink-2); line-height: 1.5;
+  border: 1px solid var(--rule); border-radius: 6px; padding: 2px 8px; font-variant-numeric: tabular-nums;
+}
+.results b { color: var(--accent-ink); font-weight: 600; }
+.links { margin: 12px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.btn {
+  font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: 0.02em; line-height: 1.5;
+  color: var(--accent); text-decoration: none; border: 1px solid var(--accent); border-radius: 6px;
+  padding: 3px 10px; background: transparent; cursor: pointer; transition: background-color .15s;
+}
+.btn:hover { background: var(--accent-soft); }
+.btn.quiet { color: var(--ink-3); border-color: var(--rule); cursor: default; }
+.btn.quiet:hover { background: transparent; }
+details.bib { margin: 0; }
+details.bib > summary { list-style: none; display: inline-block; }
+details.bib > summary::-webkit-details-marker { display: none; }
+.bibbox { margin-top: 10px; position: relative; }
+.bibbox pre {
+  margin: 0; overflow-x: auto; padding: 12px 14px; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--rule); border-radius: 8px; font-family: var(--font-mono); font-size: var(--t-xs); line-height: 1.55;
+}
+.bibbox .copy { position: absolute; top: 8px; right: 8px; background: var(--surface); }
+
+/* figure marks */
+.fig-area { fill: var(--accent-soft); stroke: none; }
+.fig-line { fill: none; stroke: var(--accent); stroke-width: 1.4; }
+.fig-axis { fill: none; stroke: var(--ink-3); stroke-width: 1; }
+.fig-tick { fill: none; stroke: var(--accent-ink); stroke-width: 1.3; }
+.fig-dot { fill: var(--accent-ink); stroke: none; }
+.fig-node { fill: var(--bg); stroke: var(--ink-3); stroke-width: 1.2; }
+.fig-target { fill: var(--accent-soft); stroke: var(--accent); }
+.fig-link { fill: none; stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 2.5 2.5; }
+.fig-token { fill: var(--accent); stroke: none; }
+.fig-check { fill: none; stroke: var(--accent-ink); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.fig-perf { fill: var(--surface); stroke: var(--ink-3); stroke-width: 0.6; }
+.fig-face { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.3; }
+.fig-body { fill: var(--surface); stroke: var(--ink-3); stroke-width: 1; }
+
+/* placeholders still to be filled in */
+.todo { color: var(--todo); font-style: italic; }
+.todo::before { content: "["; }
+.todo::after { content: "]"; }
+
+footer { margin-top: 8px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: var(--t-sm); color: var(--ink-3); }
+footer p { margin: 0; }
+
+@media (max-width: 900px) {
+  .page { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .rail-head { grid-template-columns: 104px minmax(0, 1fr); gap: 18px; align-items: center; }
+  .portrait { max-width: 104px; border-radius: 8px; }
+  .name { font-size: 2.125rem; margin: 0 0 6px; }
+  .contact li { grid-template-columns: 64px minmax(0, 1fr) auto; }
+  .contact { font-size: var(--t-md); }
+}
+@media (max-width: 620px) {
+  .paper { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .thumb { max-width: 260px; }
+  .dated > li, .news > li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .bio p:first-child { font-size: var(--t-body); }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <aside class="rail" aria-label="Profile">
+    <div class="rail-head">
+      <img class="portrait" src="assets/photo.jpg" alt="Portrait of Feiyu Jia" width="375" height="472">
+      <div>
+        <h1 class="name">Feiyu Jia</h1>
+        <p class="role">Research Assistant, SAI Lab<br>New York University</p>
+      </div>
+    </div>
+    <p class="seeking">Ph.D. applicant &middot; Fall&nbsp;2027</p>
+    <ul class="contact">
+      <li><span class="k">Email</span><a class="nowrap" href="mailto:fj2182@nyu.edu">fj2182@nyu.edu</a><button class="copy" type="button" data-copy="fj2182@nyu.edu" aria-label="Copy NYU email address">Copy</button></li>
+      <li><span class="k" aria-hidden="true"></span><a class="nowrap" href="mailto:fjiaqwer@gmail.com">fjiaqwer@gmail.com</a><button class="copy" type="button" data-copy="fjiaqwer@gmail.com" aria-label="Copy Gmail address">Copy</button></li>
+      <li><span class="k">CV</span><a href="assets/FeiyuJia_CV.pdf">PDF, 2 pages</a><span></span></li>
+      <li><span class="k">GitHub</span><a href="https://github.com/fjia-xu">fjia-xu</a></li>
+      <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/feiyu-jia-a90322334">Feiyu Jia</a></li>
+      <!-- TODO: add these once the profiles exist
+      <li><span class="k">Scholar</span><a href="https://scholar.google.com/citations?user=XXXX">Google Scholar</a></li>
+      <li><span class="k">Profile</span><a href="https://openreview.net/profile?id=~Feiyu_Jia3">OpenReview</a></li>
+      -->
+    </ul>
+    <nav class="toc" aria-label="Sections">
+      <a href="#about">About</a><a href="#news">News</a><a href="#publications">Publications</a>
+      <a href="#research">Research</a><a href="#projects">Projects</a><a href="#education">Education</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section id="about" aria-label="About">
+      <div class="bio">
+        <p>I am a research assistant in the <a href="https://www.saiqianzhang.com/Lab/">Systems and Artificial Intelligence (SAI) Lab</a> at New York University, working with <a href="https://www.saiqianzhang.com/">Prof. Sai Qian Zhang</a>. I study how to make large language models cheaper and faster to run: post-training quantization at very low bit widths, and efficient serving across many machines with speculative decoding.</p>
+        <p>I received my M.S. in Computer Engineering from NYU in 2026 and my B.Sc. in Data Science and Technology from HKUST in 2024. Before focusing on LLM efficiency, I worked on deep learning for cancer immunotherapy screening with <a href="https://research.engineering.nyu.edu/microbioengineering">Prof. Weiqiang Chen</a> at NYU, and on hand-tracking interaction in virtual reality with <a href="https://cse.hkust.edu.hk/~mxj/">Prof. Xiaojuan Ma</a> at HKUST.</p>
+        <p>I am applying to Ph.D. programs for Fall 2027.</p>
+      </div>
+      <div class="interests">
+        <span class="k">Research interests</span>
+        <ul>
+          <li>Low-bit quantization</li>
+          <li>Model compression</li>
+          <li>Efficient LLM inference and serving</li>
+          <li>Speculative decoding</li>
+          <li>Algorithm&ndash;hardware co-design</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="news">
+      <h2>News</h2>
+      <ol class="dated news">
+        <li><time class="when" datetime="2026-10">Oct 2026</time><p>Two papers under review: <a href="#pub-cobit">CoBIT</a> at ICLR 2027 and <a href="#pub-dsdsim">DSD-Sim</a> at AAAI 2027.</p></li>
+        <li><time class="when" datetime="2026-05">May 2026</time><p>Graduated from NYU with an M.S. in Computer Engineering (GPA 4.0/4.0).</p></li>
+        <li><time class="when" datetime="2026-04">Apr 2026</time><p>Joined the SAI Lab at NYU to work on efficient LLMs with Prof. Sai Qian Zhang.</p></li>
+        <li><time class="when" datetime="2026-02">Feb 2026</time><p>Built <a href="#projects">EcoTraining</a>, gradient-compression hardware for LLM training, at the Cognichip Hackathon.</p></li>
+        <li><time class="when" datetime="2022-03">Mar 2022</time><p>Published my first paper, on video face swapping, in Proc. SPIE (ICCAID 2021).</p></li>
+      </ol>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <p class="pubnote">* Equal contribution</p>
+      <div class="papers">
+
+        <article class="paper" id="pub-cobit">
+          <figure class="thumb"><svg viewBox="0 0 160 96" role="img" aria-labelledby="fig-cobit-t"><title id="fig-cobit-t">Bell-shaped weight distribution with eight unevenly spaced quantization levels, denser near zero</title><path class="fig-area" d="M8.7,82.0 L8.7,81.5 L11.0,81.3 L13.3,81.1 L15.6,80.8 L17.9,80.4 L20.2,79.9 L22.5,79.3 L24.8,78.5 L27.1,77.6 L29.4,76.5 L31.7,75.2 L34.0,73.6 L36.3,71.8 L38.6,69.7 L40.9,67.4 L43.2,64.8 L45.5,61.9 L47.8,58.7 L50.1,55.4 L52.4,51.8 L54.7,48.1 L57.0,44.4 L59.3,40.6 L61.6,37.0 L63.9,33.5 L66.2,30.2 L68.5,27.3 L70.8,24.8 L73.1,22.7 L75.4,21.2 L77.7,20.3 L80.0,20.0 L82.3,20.3 L84.6,21.2 L86.9,22.7 L89.2,24.8 L91.5,27.3 L93.8,30.2 L96.1,33.5 L98.4,37.0 L100.7,40.6 L103.0,44.4 L105.3,48.1 L107.6,51.8 L109.9,55.4 L112.2,58.7 L114.5,61.9 L116.8,64.8 L119.1,67.4 L121.4,69.7 L123.7,71.8 L126.0,73.6 L128.3,75.2 L130.6,76.5 L132.9,77.6 L135.2,78.5 L137.5,79.3 L139.8,79.9 L142.1,80.4 L144.4,80.8 L146.7,81.1 L149.0,81.3 L151.3,81.5 L151.3,82.0 Z"/><polyline class="fig-line" points="8.7,81.5 11.0,81.3 13.3,81.1 15.6,80.8 17.9,80.4 20.2,79.9 22.5,79.3 24.8,78.5 27.1,77.6 29.4,76.5 31.7,75.2 34.0,73.6 36.3,71.8 38.6,69.7 40.9,67.4 43.2,64.8 45.5,61.9 47.8,58.7 50.1,55.4 52.4,51.8 54.7,48.1 57.0,44.4 59.3,40.6 61.6,37.0 63.9,33.5 66.2,30.2 68.5,27.3 70.8,24.8 73.1,22.7 75.4,21.2 77.7,20.3 80.0,20.0 82.3,20.3 84.6,21.2 86.9,22.7 89.2,24.8 91.5,27.3 93.8,30.2 96.1,33.5 98.4,37.0 100.7,40.6 103.0,44.4 105.3,48.1 107.6,51.8 109.9,55.4 112.2,58.7 114.5,61.9 116.8,64.8 119.1,67.4 121.4,69.7 123.7,71.8 126.0,73.6 128.3,75.2 130.6,76.5 132.9,77.6 135.2,78.5 137.5,79.3 139.8,79.9 142.1,80.4 144.4,80.8 146.7,81.1 149.0,81.3 151.3,81.5"/><line class="fig-axis" x1="6" y1="82.0" x2="154" y2="82.0"/><line class="fig-tick" x1="30.5" y1="87.0" x2="30.5" y2="75.9"/><circle class="fig-dot" cx="30.5" cy="75.9" r="2.2"/><line class="fig-tick" x1="49.1" y1="87.0" x2="49.1" y2="56.9"/><circle class="fig-dot" cx="49.1" cy="56.9" r="2.2"/><line class="fig-tick" x1="62.6" y1="87.0" x2="62.6" y2="35.4"/><circle class="fig-dot" cx="62.6" cy="35.4" r="2.2"/><line class="fig-tick" x1="74.4" y1="87.0" x2="74.4" y2="21.8"/><circle class="fig-dot" cx="74.4" cy="21.8" r="2.2"/><line class="fig-tick" x1="85.6" y1="87.0" x2="85.6" y2="21.8"/><circle class="fig-dot" cx="85.6" cy="21.8" r="2.2"/><line class="fig-tick" x1="97.4" y1="87.0" x2="97.4" y2="35.4"/><circle class="fig-dot" cx="97.4" cy="35.4" r="2.2"/><line class="fig-tick" x1="110.9" y1="87.0" x2="110.9" y2="56.9"/><circle class="fig-dot" cx="110.9" cy="56.9" r="2.2"/><line class="fig-tick" x1="129.5" y1="87.0" x2="129.5" y2="75.9"/><circle class="fig-dot" cx="129.5" cy="75.9" r="2.2"/></svg><figcaption>3-bit codebook: 8 non-uniform levels</figcaption></figure>
+          <div>
+            <h3>CoBIT: Unified Optimization of Codebooks, Assignments, and Activation Composition for Extreme Low-Bit LLM Quantization</h3>
+            <p class="authors"><a href="https://openreview.net/profile?id=~Xiangyang_Yin1">Xiangyang Yin</a>, <strong>Feiyu Jia</strong>, <a href="https://openreview.net/profile?id=~Henry_Kam1">Henry Kam</a>, <a href="https://openreview.net/profile?id=~Tianhua_Xia1">Tianhua Xia</a>, <a href="https://openreview.net/profile?id=~Qi_Sun6">Qi Sun</a>, <a href="https://openreview.net/profile?id=~Sai_Qian_Zhang1">Sai Qian Zhang</a></p>
+            <p class="venue"><span class="status review">Under review</span><em>ICLR 2027</em></p>
+            <p class="summary">Post-training quantization that jointly optimizes Hessian-aware weight codebooks, error-compensated assignments, and a per-token FP4 exponent&ndash;mantissa format, with a fused CUDA kernel for inference.</p>
+            <ul class="results" aria-label="Key results">
+              <li><b>+35.9</b> pts vs. best baseline, A4W2</li>
+              <li><b>+4.8</b> pts vs. best baseline, A4W3</li>
+              <li>up to <b>1.53&times;</b> faster decoding than FP16, A4W4</li>
+            </ul>
+            <p class="links"><a class="btn" href="https://openreview.net/forum?id=nEuM4oO9hI">OpenReview</a><span class="btn quiet">Code upon acceptance</span></p>
+          </div>
+        </article>
+
+        <article class="paper" id="pub-dsdsim">
+          <figure class="thumb"><svg viewBox="0 0 160 96" role="img" aria-labelledby="fig-dsd-t"><title id="fig-dsd-t">Four draft nodes send speculative tokens over the network to one target node that verifies them</title><rect class="fig-node" x="8" y="10" width="36" height="14" rx="3"/><path class="fig-link" d="M44,17 C76,17 76,36 108,36"/><rect class="fig-token" x="52" y="15" width="4" height="4" rx="0.8"/><rect class="fig-token" x="58" y="15" width="4" height="4" rx="0.8"/><rect class="fig-token" x="64" y="15" width="4" height="4" rx="0.8"/><rect class="fig-node" x="8" y="31" width="36" height="14" rx="3"/><path class="fig-link" d="M44,38 C76,38 76,44 108,44"/><rect class="fig-node" x="8" y="52" width="36" height="14" rx="3"/><path class="fig-link" d="M44,59 C76,59 76,52 108,52"/><rect class="fig-token" x="52" y="57" width="4" height="4" rx="0.8"/><rect class="fig-token" x="58" y="57" width="4" height="4" rx="0.8"/><rect class="fig-token" x="64" y="57" width="4" height="4" rx="0.8"/><rect class="fig-node" x="8" y="73" width="36" height="14" rx="3"/><path class="fig-link" d="M44,80 C76,80 76,60 108,60"/><rect class="fig-node fig-target" x="108" y="30" width="44" height="36" rx="4"/><path class="fig-check" d="M115,48 l2.5,2.5 l4.5,-5"/><path class="fig-check" d="M127,48 l2.5,2.5 l4.5,-5"/><path class="fig-check" d="M139,48 l2.5,2.5 l4.5,-5"/></svg><figcaption>4 draft nodes share 1 target verifier</figcaption></figure>
+          <div>
+            <h3>DSD-Sim: A Simulation Framework for Distributed Speculative Decoding in Multi-Node LLM Serving</h3>
+            <p class="authors"><a href="https://openreview.net/profile?id=~Leshu_Li1">Leshu Li</a>, <a href="https://openreview.net/profile?id=~Fengze_Yu1">Fengze Yu</a>, <a href="https://openreview.net/profile?id=~Yifei_Feng1">Yifei Feng</a>, <strong>Feiyu Jia</strong>, <a href="https://openreview.net/profile?id=~Jian_Li14">Jian Li</a>, <a href="https://openreview.net/profile?id=~Hao_Wang29">Hao Wang</a>, <a href="https://openreview.net/profile?id=~Bradley_McDanel2">Bradley McDanel</a>, <a href="https://openreview.net/profile?id=~Sai_Qian_Zhang1">Sai Qian Zhang</a></p>
+            <p class="venue"><span class="status review">Under review</span><em>AAAI 2027</em></p>
+            <p class="summary">A discrete-event simulator for speculative decoding across draft and target node pools that models routing, batching, speculation windows and network topology, calibrated against real GPUs and NS-3.</p>
+            <ul class="results" aria-label="Key results">
+              <li><b>3.2%</b> decode-latency error vs. real GPUs</li>
+              <li><b>&asymp;3%</b> network error vs. NS-3</li>
+              <li><b>4,096</b> nodes simulated</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="paper" id="pub-spie">
+          <figure class="thumb"><svg viewBox="0 0 160 92" role="img" aria-labelledby="fig-spie-t"><title id="fig-spie-t">Three consecutive video frames with the face replaced in each frame</title><rect class="fig-node" x="8" y="14" width="44" height="64" rx="3"/><rect class="fig-perf" x="12" y="17" width="6" height="4" rx="1"/><rect class="fig-perf" x="12" y="71" width="6" height="4" rx="1"/><rect class="fig-perf" x="22" y="17" width="6" height="4" rx="1"/><rect class="fig-perf" x="22" y="71" width="6" height="4" rx="1"/><rect class="fig-perf" x="32" y="17" width="6" height="4" rx="1"/><rect class="fig-perf" x="32" y="71" width="6" height="4" rx="1"/><rect class="fig-perf" x="42" y="17" width="6" height="4" rx="1"/><rect class="fig-perf" x="42" y="71" width="6" height="4" rx="1"/><path class="fig-body" d="M16,66 Q30,48 44,66 Z"/><circle class="fig-face" cx="30" cy="40" r="9.5"/><rect class="fig-node" x="58" y="14" width="44" height="64" rx="3"/><rect class="fig-perf" x="62" y="17" width="6" height="4" rx="1"/><rect class="fig-perf" x="62" y="71" width="6" height="4" rx="1"/><rect class="fig-perf" x="72" y="17" width="6" height="4" rx="1"/><rect class="fig-perf" x="72" y="71" width="6" height="4" rx="1"/><rect class="fig-perf" x="82" y="17" width="6" height="4" rx="1"/><rect class="fig-perf" x="82" y="71" width="6" height="4" rx="1"/><rect class="fig-perf" x="92" y="17" width="6" height="4" rx="1"/><rect class="fig-perf" x="92" y="71" width="6" height="4" rx="1"/><path class="fig-body" d="M66,66 Q80,48 94,66 Z"/><circle class="fig-face" cx="80" cy="40" r="9.5"/><rect class="fig-node" x="108" y="14" width="44" height="64" rx="3"/><rect class="fig-perf" x="112" y="17" width="6" height="4" rx="1"/><rect class="fig-perf" x="112" y="71" width="6" height="4" rx="1"/><rect class="fig-perf" x="122" y="17" width="6" height="4" rx="1"/><rect class="fig-perf" x="122" y="71" width="6" height="4" rx="1"/><rect class="fig-perf" x="132" y="17" width="6" height="4" rx="1"/><rect class="fig-perf" x="132" y="71" width="6" height="4" rx="1"/><rect class="fig-perf" x="142" y="17" width="6" height="4" rx="1"/><rect class="fig-perf" x="142" y="71" width="6" height="4" rx="1"/><path class="fig-body" d="M116,66 Q130,48 144,66 Z"/><circle class="fig-face" cx="130" cy="40" r="9.5"/></svg><figcaption>Frame-by-frame face replacement</figcaption></figure>
+          <div>
+            <h3>Video Face Swap with DeepFaceLab</h3>
+            <p class="authors"><strong>Feiyu Jia</strong>*, Sihan Yang*</p>
+            <p class="venue"><span class="status published">Published</span><em>Proc. SPIE 12168 (ICCAID 2021), 2022</em></p>
+            <p class="summary">Face swapping in video with a SAEHD autoencoder and S3FD scale-invariant face detection. Co-first and corresponding author.</p>
+            <div class="links">
+              <a class="btn" href="https://doi.org/10.1117/12.2631297">DOI</a>
+              <details class="bib">
+                <summary class="btn">BibTeX</summary>
+                <div class="bibbox"><pre id="bib-spie">@inproceedings{jia2022faceswap,
+  author    = {Jia, Feiyu and Yang, Sihan},
+  title     = {Video face swap with {DeepFaceLab}},
+  booktitle = {International Conference on Computer Graphics, Artificial
+               Intelligence, and Data Processing (ICCAID 2021)},
+  editor    = {Liu, Jinping and Chen, Yanping and Wu, Feng},
+  series    = {Proceedings of SPIE},
+  volume    = {12168},
+  pages     = {121681H},
+  publisher = {SPIE},
+  year      = {2022},
+  doi       = {10.1117/12.2631297}
+}</pre><button class="copy" type="button" data-copy-from="bib-spie">Copy</button></div>
+              </details>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>Research experience</h2>
+      <ol class="dated roles">
+        <li>
+          <span class="when">Apr 2026 &ndash; present</span>
+          <div>
+            <h3>Systems and Artificial Intelligence (SAI) Lab, New York University</h3>
+            <p class="meta">Research Assistant &middot; Advisor: Prof. Sai Qian Zhang</p>
+            <p class="desc">Extreme low-bit post-training quantization (CoBIT) and simulation of distributed speculative decoding (DSD-Sim). My work covers implementation and large-scale accuracy and efficiency experiments.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">Jan 2025 &ndash; Jul 2025</span>
+          <div>
+            <h3>NYU Vertically Integrated Projects: Smart Microphysiological System for Precision Medicine</h3>
+            <p class="meta">Research Assistant, AI Subteam &middot; Advisor: Prof. Weiqiang Chen</p>
+            <p class="desc">Deep learning-guided immunotherapy screening for pancreatic adenocarcinoma: automated detection, counting and tracking of cancer and immune cells in time-lapse microscopy. I also benchmarked deep survival models on public TCGA histopathology images.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">Jul 2022 &ndash; Dec 2022</span>
+          <div>
+            <h3>HCI Initiative, HKUST</h3>
+            <p class="meta">Undergraduate Researcher (UROP) &middot; Advisor: Prof. Xiaojuan Ma</p>
+            <p class="desc">User experience of hand-gesture interaction for immersive data visualization. I built Unity prototypes for Meta Quest 2 and ran a user study with 32 participants.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2021</span>
+          <div>
+            <h3>Independent project, HKUST</h3>
+            <p class="meta">With Sihan Yang (Dalian University of Technology)</p>
+            <p class="desc">Video face swapping with deep generative models, from data collection to training and evaluation; published in Proc. SPIE.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ol class="dated roles">
+        <li>
+          <span class="when">Feb 2026</span>
+          <div>
+            <h3>EcoTraining: energy-efficient gradient compression for LLM training</h3>
+            <p class="meta">Cognichip Hackathon &middot; team of four &middot; <a href="https://github.com/fjia-xu/Cognichip-Hackathon-by-Train-Neo-Bit">GitHub</a></p>
+            <p class="desc">With three teammates, I designed SystemVerilog hardware in which large gradients go straight to memory while small updates accumulate in an on-chip SRAM cache until they cross a threshold. It cut DRAM writes by 52% in testbench simulation.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ol class="dated edu">
+        <li>
+          <span class="when">2024 &ndash; 2026</span>
+          <div><h3>New York University, Tandon School of Engineering</h3><p class="meta">M.S. in Computer Engineering &middot; GPA 4.0/4.0</p></div>
+        </li>
+        <li>
+          <span class="when">2020 &ndash; 2024</span>
+          <div><h3>The Hong Kong University of Science and Technology</h3><p class="meta">B.Sc. in Data Science and Technology</p></div>
+        </li>
+        <li>
+          <span class="when">Spring 2023</span>
+          <div><h3>University of Florida</h3><p class="meta">Exchange student, Herbert Wertheim College of Engineering</p></div>
+        </li>
+      </ol>
+    </section>
+
+    <footer>
+      <p>Last updated October 2026</p>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function () {
+  function flash(btn, text) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = text;
+    window.setTimeout(function () { btn.textContent = original; }, 1600);
+  }
+  function selectNode(node) {
+    try {
+      var range = document.createRange();
+      range.selectNodeContents(node);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    } catch (e) {}
+  }
+  document.querySelectorAll('[data-copy], [data-copy-from]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var fromId = btn.getAttribute('data-copy-from');
+      var node = fromId ? document.getElementById(fromId) : null;
+      var text = node ? node.textContent : btn.getAttribute('data-copy');
+      var fallback = function () {
+        if (node) { selectNode(node); flash(btn, 'Selected'); }
+        else { flash(btn, 'Copy failed'); }
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { flash(btn, 'Copied'); }, fallback);
+      } else {
+        fallback();
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
